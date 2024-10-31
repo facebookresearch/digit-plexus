@@ -1,0 +1,72 @@
+
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
+
+/allegro:
+  ros__parameters:
+    gains_pd/d/j00: 15.0
+    gains_pd/d/j01: 20.0
+    gains_pd/d/j02: 15.0
+    gains_pd/d/j03: 15.0
+
+    gains_pd/d/j10: 15.0
+    gains_pd/d/j11: 20.0
+    gains_pd/d/j12: 15.0
+    gains_pd/d/j13: 15.0
+
+    gains_pd/d/j20: 15.0
+    gains_pd/d/j21: 20.0
+    gains_pd/d/j22: 15.0
+    gains_pd/d/j23: 15.0
+
+    gains_pd/d/j30: 30.0
+    gains_pd/d/j31: 20.0
+    gains_pd/d/j32: 20.0
+    gains_pd/d/j33: 15.0
+
+    gains_pd/p/j00: 6000.0
+    gains_pd/p/j01: 6000.0
+    gains_pd/p/j02: 6000.0
+    gains_pd/p/j03: 6000.0
+
+    gains_pd/p/j10: 6000.0
+    gains_pd/p/j11: 6000.0
+    gains_pd/p/j12: 6000.0
+    gains_pd/p/j13: 6000.0
+
+    gains_pd/p/j20: 6000.0
+    gains_pd/p/j21: 6000.0
+    gains_pd/p/j22: 6000.0
+    gains_pd/p/j23: 6000.0
+
+    gains_pd/p/j30: 6000.0
+    gains_pd/p/j31: 6000.0
+    gains_pd/p/j32: 6000.0
+    gains_pd/p/j33: 6000.0
+    hand_info/manufacturer: manu
+    hand_info/origin: origin
+    hand_info/robot_name: metahand
+    hand_info/serial: serial
+    hand_info/version: 4.0
+    hand_info/which_hand: Right
+    initial_position/j00: 0.0
+    initial_position/j01: -10.0
+    initial_position/j02: 45.0
+    initial_position/j03: 45.0
+    initial_position/j10: 0.0
+    initial_position/j11: -10.0
+    initial_position/j12: 45.0
+    initial_position/j13: 45.0
+    initial_position/j20: 5.0
+    initial_position/j21: -5.0
+    initial_position/j22: 50.0
+    initial_position/j23: 45.0
+    initial_position/j30: 60.0
+    initial_position/j31: 25.0
+    initial_position/j32: 15.0
+    initial_position/j33: 45.0
+

@@ -1,0 +1,62 @@
+
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# All rights reserved.
+
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
+
+/allegroHand/allegro_controller:
+  ros__parameters:
+    gains_pd/0/d: 0.10
+    gains_pd/0/p: 4.0
+    gains_pd/1/d: 0.10
+    gains_pd/1/p: 4.0
+    gains_pd/10/d: 0.10
+    gains_pd/10/p: 4.0
+    gains_pd/11/d: 0.10
+    gains_pd/11/p: 4.0
+    gains_pd/12/d: 0.10
+    gains_pd/12/p: 4.0
+    gains_pd/13/d: 0.10
+    gains_pd/13/p: 4.0
+    gains_pd/14/d: 0.10
+    gains_pd/14/p: 4.0
+    gains_pd/15/d: 0.10
+    gains_pd/15/p: 4.0
+    gains_pd/2/d: 0.10
+    gains_pd/2/p: 4.0
+    gains_pd/3/d: 0.10
+    gains_pd/3/p: 4.0
+    gains_pd/4/d: 0.10
+    gains_pd/4/p: 4.0
+    gains_pd/5/d: 0.10
+    gains_pd/5/p: 4.0
+    gains_pd/6/d: 0.10
+    gains_pd/6/p: 4.0
+    gains_pd/7/d: 0.10
+    gains_pd/7/p: 4.0
+    gains_pd/8/d: 0.10
+    gains_pd/8/p: 4.0
+    gains_pd/9/d: 0.10
+    gains_pd/9/p: 4.0
+    position_offset/0: 0.0
+    position_offset/1: 0.0
+    position_offset/10: 0.0
+    position_offset/11: 0.0
+    position_offset/12: 0.0
+    position_offset/13: 0.0
+    position_offset/14: 0.0
+    position_offset/10: 0.0
+    position_offset/2: 0.0
+    position_offset/3: 0.0
+    position_offset/4: 0.0
+    position_offset/5: 0.0
+    position_offset/6: 0.0
+    position_offset/7: 0.0
+    position_offset/8: 0.0
+    position_offset/9: 0.0
+    qv_alpha: 0.7
+    torque_limit: 0.7
+    use_sim_time: false
+

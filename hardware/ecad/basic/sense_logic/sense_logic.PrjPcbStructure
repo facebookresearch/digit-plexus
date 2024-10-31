@@ -1,0 +1,5 @@
+Record=TopLevelDocument|FileName=AUX_CONNECTOR.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=AUX_CONNECTOR.SchDoc|FileName=LOGIC.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=AUX_CONNECTOR.SchDoc|FileName=LOGIC_CONNECTOR.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=AUX_CONNECTOR.SchDoc|FileName=SPINE_CONNECTOR.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=AUX_CONNECTOR.SchDoc|FileName=USB_CONNECTOR.SchDoc|SheetNumber=3
