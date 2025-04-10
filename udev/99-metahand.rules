@@ -1,0 +1,21 @@
+# Metahand CAN
+# Test - python '/home/tingfan/GUM/gum/devices/metahand/allegro_driver.py'
+ACTION=="add|change", SUBSYSTEM=="usb", ATTR{idVendor}=="2833", ATTR{idProduct}=="b010", RUN+="/sbin/modprobe gs_usb"
+
+ACTION=="add|change", SUBSYSTEMS=="usb", ATTRS{idVendor}=="2833", ATTRS{idProduct}=="b010", \
+RUN+="/bin/sh -c 'echo 2833 b010 > /sys/bus/usb/drivers/gs_usb/new_id'"
+
+SUBSYSTEM=="net", ENV{INTERFACE}=="can0|can3|MetahandCAN*", ATTRS{bInterfaceNumber}=="00", \
+RUN+="/sbin/ip link set $name type can bitrate 1000000", \
+RUN+="/sbin/ip link set $name up"
+
+# Metahand CTRL
+SUBSYSTEMS=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="2833", ATTR{idProduct}=="b011", GROUP:="plugdev", MODE:="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2833", ATTRS{idProduct}=="b011", MODE:="0666", GROUP:="plugdev" SYMLINK+="ttyMetahand"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2cd9", ATTRS{idProduct}=="0021", MODE:="0666", GROUP:="plugdev" SYMLINK+="ttyCambrionix"
+
+# Robotiq FT Force/Torque sensor
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", MODE:="0666", GROUP:="plugdev" SYMLINK+="ttyFT300"
+
+# Metahand HUB
+SUBSYSTEMS=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="2833", ATTR{idProduct}=="b012", GROUP:="plugdev", MODE:="0666"
