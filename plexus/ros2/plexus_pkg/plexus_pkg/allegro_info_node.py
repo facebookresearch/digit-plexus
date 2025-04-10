@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 
 # Copyright (c) Meta Platforms, Inc. and affiliates.
 # All rights reserved.
@@ -7,7 +7,6 @@
 # LICENSE file in the root directory of this source tree.
 
 
-#!/usr/bin/env python3
 from typing import List
 import numpy as np
 import argparse
@@ -25,7 +24,7 @@ from rclpy.qos import qos_profile_system_default
 from rcl_interfaces.msg import SetParametersResult, Parameter
 from diagnostic_msgs.msg import DiagnosticStatus, DiagnosticArray, KeyValue
 
-from plexus_pkg.allegro_driver import AllegroDriver
+from plexus.ros2.plexus_pkg.plexus_pkg.allegro_driver import AllegroDriver
 
 class ROSAllegroInfo(rclpy.node.Node):
     def __init__(self) -> None:
