@@ -28,7 +28,12 @@ def get_allegro_configs() -> Dict[str, Path]:
     configs = {}
     for iface in interfaces:
         allegro_driver = AllegroDriver(can_channel=iface["channel"])
-        allegro_serial = allegro_driver.get_serial().lower()
+        try:
+            allegro_serial = allegro_driver.get_serial().lower()
+            print("read serial from ", iface, allegro_serial)
+        except TimeoutError:
+            print('failed to read serial from ', iface)
+            continue
         allegro_config_serial = Path(f"{launch_root}/allegro_node_params_{allegro_serial}.yaml")
         allegro_config_default= Path(f"{launch_root}/allegro_node_params.yaml")
     
@@ -45,11 +50,10 @@ def get_allegro_configs() -> Dict[str, Path]:
 def _generate_launch_description(context):
     configs = get_allegro_configs()
     nodes = []
-    
     for can_interface, config in configs.items():
         if can_interface == "can0":
             _ns = "right_hand"
-        elif can_interface == "can1":
+        elif can_interface == "can2":
             _ns = "left_hand"
         else:
             _ns = f"allegroHand_{can_interface}"
