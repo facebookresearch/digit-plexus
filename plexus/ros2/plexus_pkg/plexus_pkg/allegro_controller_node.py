@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 # Copyright (c) Meta Platforms, Inc. and affiliates.
 # All rights reserved.
@@ -6,7 +7,7 @@
 # LICENSE file in the root directory of this source tree.
 
 
-#!/usr/bin/env python3
+
 from typing import List
 import numpy as np
 import argparse
@@ -34,7 +35,6 @@ class ROSAllegroController(rclpy.node.Node):
             raise e
         self.dt = 0.003
         self.dof = 16
-
 
         #controller gains
         for i in range(16):
