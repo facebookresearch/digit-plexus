@@ -23,8 +23,8 @@ from typing import Dict
 
 # Edit this to map the allegro hand serial to either a left or right hand
 HAND_MAPPING_CONFIG = {
-    "left": "T1234".lower(),
-    "right": "T2345".lower(),
+    "left": "T1234",
+    "right": "T2345",
 }
 
 
@@ -44,7 +44,7 @@ def get_allegro_configs() -> Dict[str, Path]:
 
         matched_hand_serial = None
         for hand, serial in HAND_MAPPING_CONFIG.items():
-            if allegro_serial == serial:
+            if allegro_serial == serial.lower():
                 matched_hand_serial = hand
                 break
 
