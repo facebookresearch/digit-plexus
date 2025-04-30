@@ -72,7 +72,7 @@ def _generate_launch_description(context):
     nodes = []
 
     for can_interface, (config, hand) in configs.items():
-        _ns = f"{hand}_hand"
+        _ns = f"/hand/{hand}"
 
         allegro_controller_node = Node(
             namespace=_ns,
