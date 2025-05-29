@@ -35,6 +35,7 @@ class ROSAllegroController(rclpy.node.Node):
             raise e
         self.dt = 0.003
         self.dof = 16
+        self.timeout = 30_000_000_000
 
         #controller gains
         for i in range(16):
@@ -149,7 +150,7 @@ class ROSAllegroController(rclpy.node.Node):
         torque = np.clip(torque, -torque_limit, torque_limit)
         self.robot.set_torque(torque)
 
-        if (start_control - self.cmd_updatetime ).nanoseconds > 3_000_000_000:
+        if (start_control - self.cmd_updatetime ).nanoseconds > self.timeout:
             self._set_motor(False)
 
         #publish
