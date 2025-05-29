@@ -7,14 +7,12 @@
 #!/usr/bin/env python3
 import os
 import can
-import json
 
 from typing import Dict
 from pathlib import Path
 
 from launch import LaunchDescription
 from launch.actions import (
-    DeclareLaunchArgument,
     RegisterEventHandler,
     EmitEvent,
     LogInfo,
@@ -23,24 +21,12 @@ from launch.actions import (
 from launch.event_handlers import OnProcessExit
 from launch.events import Shutdown
 from launch_ros.actions import Node
-from launch.substitutions import LaunchConfiguration
 
 from plexus.ros2.plexus_pkg.plexus_pkg.allegro_driver import AllegroDriver
 
 
-def generate_launch_description():
-    hand_mapping_arg = DeclareLaunchArgument(
-        "hand_mapping",
-        default_value=json.dumps({"left": "T1234", "right": "T2345"}),
-        description="Mapping of hand side to serial numbers in JSON format",
-    )
 
-    return LaunchDescription(
-        [hand_mapping_arg, OpaqueFunction(function=_generate_launch_description)]
-    )
-
-
-def get_allegro_configs(hand_mapping_config: Dict[str, str]) -> Dict[str, Path]:
+def get_allegro_configs() -> Dict[str, Path]:
     launch_root = os.path.dirname(os.path.abspath(__file__))
     interfaces = can.detect_available_configs(interfaces="socketcan")
     configs = {}
@@ -54,11 +40,7 @@ def get_allegro_configs(hand_mapping_config: Dict[str, str]) -> Dict[str, Path]:
             print("Failed to read serial from ", iface)
             continue
 
-        matched_hand_serial = None
-        for hand, serial in hand_mapping_config.items():
-            if allegro_serial == serial:
-                matched_hand_serial = hand
-                break
+        matched_hand_serial = allegro_driver.get_info().get("hand", None)
 
         if not matched_hand_serial:
             raise ValueError(f"Unknown Allegro Hand serial number: {allegro_serial}")
@@ -80,12 +62,7 @@ def get_allegro_configs(hand_mapping_config: Dict[str, str]) -> Dict[str, Path]:
 
 
 def _generate_launch_description(context):
-    hand_mapping_json = LaunchConfiguration("hand_mapping").perform(context)
-    hand_mapping_config = {
-        k.lower(): v.lower() for k, v in json.loads(hand_mapping_json).items()
-    }
-
-    configs = get_allegro_configs(hand_mapping_config)
+    configs = get_allegro_configs()
     nodes = []
 
     for can_interface, (config, hand) in configs.items():
