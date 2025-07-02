@@ -5,7 +5,7 @@ ACTION=="add|change", SUBSYSTEM=="usb", ATTR{idVendor}=="2833", ATTR{idProduct}=
 ACTION=="add|change", SUBSYSTEMS=="usb", ATTRS{idVendor}=="2833", ATTRS{idProduct}=="b010", \
 RUN+="/bin/sh -c 'echo 2833 b010 > /sys/bus/usb/drivers/gs_usb/new_id'"
 
-SUBSYSTEM=="net", ENV{INTERFACE}=="can0|can3|MetahandCAN*", ATTRS{bInterfaceNumber}=="00", \
+SUBSYSTEM=="net", ENV{INTERFACE}=="can*", ATTRS{bInterfaceNumber}=="00", \
 RUN+="/sbin/ip link set $name type can bitrate 1000000", \
 RUN+="/sbin/ip link set $name up"
 
